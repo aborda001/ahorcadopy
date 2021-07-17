@@ -50,19 +50,31 @@ graficos = ['''
           |
     =========''']
 
-def bienvenida(booleano):
-    if not booleano:
-        print("A    H   O   R   C   A   D   O")
-        print("Escoja su nivel de dificultad:   ")
-        print("1. Facil")
-        print("2. Medio")
-        print("3. Dificil")
-        nivel = input("Ingrese el numero correspondiente a la dificultad:       ")
+def bienvenida():
+    os.system('clear')
+    print("A    H   O   R   C   A   D   O")
+    print(graficos[6])
+    print("Escoja su nivel de dificultad:   ")
+    print("1. Facil")
+    print("2. Medio")
+    print("3. Dificil")
+    print("4. Aleatoria")
+    nivel = input("Ingrese el numero correspondiente a la dificultad:       ")
+    if nivel.isnumeric():
+        nivel = int(nivel)
+        if nivel > 0 and nivel < 5:
+            return nivel
+    return bienvenida()
 
-diccionario = []
-with open("palabras.txt") as palabras:
-    #El contenido de "palabras.txt" se guarda en el array diccionario
-    diccionario = palabras.read().split()
+def elegirCategoria(opcion):
+    archivos = ["facil.txt", "medio.txt", "dificil.txt", "palabras.txt"]
+    conjuntoPalabras = []
+    opcionArch = archivos[opcion-1]
+    with open(opcionArch) as archivo:
+        #El contenido de "palabras.txt" se guarda en el array diccionario
+        conjuntoPalabras = archivo.read().split()
+    return conjuntoPalabras
+
 
 def buscarPalabra(diccionario):
     #Escoge una palabra de forma aleatoria dentro del array de palabras

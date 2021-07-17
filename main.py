@@ -1,12 +1,14 @@
 from funcion import *
-import time
+
 def main():
+    nivel = bienvenida()
+    diccionario = elegirCategoria(nivel)
     letraCorrecta = ""
     letraIncorrecta = ""
     palabra = buscarPalabra(diccionario)
     fin = False
-    bienvenida(False)
-    
+
+
 
     while (True):
         os.system('clear')
