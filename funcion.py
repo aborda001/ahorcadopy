@@ -50,6 +50,15 @@ graficos = ['''
           |
     =========''']
 
+def bienvenida(booleano):
+    if not booleano:
+        print("A    H   O   R   C   A   D   O")
+        print("Escoja su nivel de dificultad:   ")
+        print("1. Facil")
+        print("2. Medio")
+        print("3. Dificil")
+        nivel = input("Ingrese el numero correspondiente a la dificultad:       ")
+
 diccionario = []
 with open("palabras.txt") as palabras:
     #El contenido de "palabras.txt" se guarda en el array diccionario

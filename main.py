@@ -1,11 +1,13 @@
 from funcion import *
-
+import time
 def main():
-    print("A    H   O   R   C   A   D   O")
     letraCorrecta = ""
     letraIncorrecta = ""
     palabra = buscarPalabra(diccionario)
     fin = False
+    bienvenida(False)
+    
+
     while (True):
         os.system('clear')
         tableroVisual(graficos,letraIncorrecta,letraCorrecta,palabra)
