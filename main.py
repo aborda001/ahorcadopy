@@ -1,14 +1,13 @@
 from funcion import *
 
 def main():
+
     nivel = bienvenida()
     diccionario = elegirCategoria(nivel)
     letraCorrecta = ""
     letraIncorrecta = ""
     palabra = buscarPalabra(diccionario)
     fin = False
-
-
 
     while (True):
         os.system('clear')
@@ -56,6 +55,7 @@ def main():
                     fin = False
                     palabra = buscarPalabra(diccionario)
             else:
+                os.system('clear')
                 break
 
 
