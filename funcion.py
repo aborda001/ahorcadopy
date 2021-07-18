@@ -115,3 +115,7 @@ def elegirLetra(letraCualquiera):
 def empezar():
     print ('Quieres jugar de nuevo? (Si o No)')
     return input().lower().startswith('s')
+
+def cambiarDificultad():
+    print ('Quieres cambiar de dificultad? (Si o No)')
+    return input().lower().startswith('s')
