@@ -42,11 +42,19 @@ def main():
                 fin = True
         if fin:
             if empezar():
-                #Si el jugador asi lo desea el juego vuelve a comenzar con una nueva palabra
-                letraIncorrecta = ""
-                letraCorrecta = ""
-                fin = False
-                palabra = buscarPalabra(diccionario)
+                #Si el jugador asi lo desea el juego vuelve a comenzar con una nueva palabra y preguntamos si desea cambiar de dificultad
+                if cambiarDificultad():
+                    nivel = bienvenida()
+                    diccionario = elegirCategoria(nivel)
+                    letraCorrecta = ""
+                    letraIncorrecta = ""
+                    palabra = buscarPalabra(diccionario)
+                    fin = False
+                else:
+                    letraIncorrecta = ""
+                    letraCorrecta = ""
+                    fin = False
+                    palabra = buscarPalabra(diccionario)
             else:
                 break
 
