@@ -71,7 +71,7 @@ def elegirCategoria(opcion):
     conjuntoPalabras = []
     opcionArch = archivos[opcion-1]
     with open(opcionArch) as archivo:
-        #El contenido de "palabras.txt" se guarda en el array diccionario
+        #El contenido del archivo seleccionado se guarda en el array diccionario
         conjuntoPalabras = archivo.read().split()
     return conjuntoPalabras
 
