@@ -1,8 +1,8 @@
 from funcion import *
 
 def main():
-
-    nivel = bienvenida()
+    pistas = 0
+    nivel = bienvenida(pistas)
     diccionario = elegirCategoria(nivel)
     letraCorrecta = ""
     letraIncorrecta = ""
@@ -11,8 +11,8 @@ def main():
 
     while (True):
         os.system('clear')
-        tableroVisual(graficos,letraIncorrecta,letraCorrecta,palabra)
-        letra = elegirLetra(letraCorrecta+letraIncorrecta)
+        tableroVisual(graficos,letraIncorrecta,letraCorrecta,palabra,pistas)
+        letra, letraCorrecta, pistas = elegirLetra(letraCorrecta,letraIncorrecta,palabra,pistas)
 
         if letra in palabra:
             #Comprueba si la letra ingresada se encuentra dentro de la palabra
@@ -27,6 +27,7 @@ def main():
                 #El juego finaliza si la palabra ha sido encontrada
                 print(f"Genial! La palabra secreta es: {palabra}    ")
                 print("Haz ganado!!")
+                pistas += 1
                 fin = True
         else:
             #Si la letra es erronea lo agrega a las letra equivocadas
@@ -34,7 +35,7 @@ def main():
             if(len(letraIncorrecta) == len(graficos)-1):
                 #Finaliza el juego si ya no quedan mas intentos
                 os.system('clear')
-                tableroVisual(graficos,letraIncorrecta,letraCorrecta,palabra)
+                tableroVisual(graficos,letraIncorrecta,letraCorrecta,palabra,pistas)
                 print("Se ha quedado sin vidas :(")
                 print(f"Tuviste {len(letraIncorrecta)} errores y {len(letraCorrecta)} aciertos.")
                 print(f"La palabra oculta era:  {palabra}")
@@ -43,7 +44,7 @@ def main():
             if empezar():
                 #Si el jugador asi lo desea el juego vuelve a comenzar con una nueva palabra y preguntamos si desea cambiar de dificultad
                 if cambiarDificultad():
-                    nivel = bienvenida()
+                    nivel = bienvenida(pistas)
                     diccionario = elegirCategoria(nivel)
                     letraCorrecta = ""
                     letraIncorrecta = ""
