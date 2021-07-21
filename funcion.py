@@ -90,7 +90,7 @@ def buscarPalabra(diccionario):
 
 def tableroVisual(grafico, letraIncorrecta, letraCorrecta, palabra,pistas):
     #Muestra el tablero y progreso del jugador en pantalla
-    print(f"Tiene {pistas} pistas disponible")
+    print(f"Pistas disponibles: {pistas}")
     if pistas > 0:
         print("Si desea utilizarla escriba 'pista'")
     print(grafico[len(letraIncorrecta)])
