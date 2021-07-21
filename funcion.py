@@ -112,7 +112,7 @@ def tableroVisual(grafico, letraIncorrecta, letraCorrecta, palabra,pistas):
 def elegirLetra(letraCorrecta,letraIncorrecta,palabra,pistas):
     #Pide una letra y comprueba si la misma se encuentra disponible
     letraCualquiera = letraCorrecta + letraIncorrecta
-    abecedario = 'abcdefghijklmnopqrstuvwxyz'
+    abecedario = 'abcdefghijklmnñopqrstuvwxyz'
     while(True):
         letra = input("Ingrese una letra:   ").lower()
         if (len(letra) != 1):
