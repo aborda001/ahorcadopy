@@ -52,13 +52,16 @@ graficos = ['''
 
 def bienvenida(pistas):
     os.system('clear')
-    print(f"A    H   O   R   C   A   D   O       {pistas} pistas")
+    print("\033[;32m"+ f"A    H   O   R   C   A   D   O       {pistas} pistas")
+    print("\033[;31m")
     print(graficos[6])
+    print("\033[;37m")
     print("Escoja su nivel de dificultad:   ")
-    print("1. Facil")
-    print("2. Medio")
-    print("3. Dificil")
-    print("4. Aleatoria")
+    print("\033[;32m"+"1. Facil")
+    print("\033[;33m" + "2. Medio")
+    print("\033[;31m" + "3. Dificil")
+    print("\033[;35m" + "4. Aleatoria")
+    print("\033[;37m")
     nivel = input("Ingrese el numero correspondiente a la dificultad:       ")
     if nivel.isnumeric():
         nivel = int(nivel)
@@ -90,10 +93,16 @@ def buscarPalabra(diccionario):
 
 def tableroVisual(grafico, letraIncorrecta, letraCorrecta, palabra,pistas):
     #Muestra el tablero y progreso del jugador en pantalla
+    if pistas > 0:
+        print("\033[;32m")
+    else:
+        print("\033[;31m")
     print(f"Pistas disponibles: {pistas}")
     if pistas > 0:
         print("Si desea utilizarla escriba 'pista'")
+    print("\033[;31m")
     print(grafico[len(letraIncorrecta)])
+    print("\033[;37m")
     print("Letras incorrectas:  ", end='')
     for letra in letraIncorrecta:
         print(letra, end=" ")
@@ -120,10 +129,13 @@ def elegirLetra(letraCorrecta,letraIncorrecta,palabra,pistas):
                 letra, letraCorrecta, pistas = revelarPistas(pistas,palabra,letraCorrecta)
                 return letra, letraCorrecta, pistas
             else:
+                print("\033[;31m")
                 print("Ingrese solo una letra!!")
         elif letra in letraCualquiera:
+            print("\033[;31m")
             print("Ya haz probado con esta, mejor prueba con otra")
         elif letra not in abecedario:
+            print("\033[;31m")
             print("Debes escoger una letra (a-z)")
         else:
             return letra, letraCorrecta, pistas

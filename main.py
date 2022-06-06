@@ -25,7 +25,7 @@ def main():
                     break
             if (letrasEncontradas):
                 #El juego finaliza si la palabra ha sido encontrada
-                print(f"Genial! La palabra secreta es: {palabra}    ")
+                print("\033[;32m"+f"Genial! La palabra secreta es: {palabra}    ")
                 print("Haz ganado!!")
                 pistas += 1
                 fin = True
@@ -36,7 +36,7 @@ def main():
                 #Finaliza el juego si ya no quedan mas intentos
                 os.system('clear')
                 tableroVisual(graficos,letraIncorrecta,letraCorrecta,palabra,pistas)
-                print("Se ha quedado sin vidas :(")
+                print("\033[;31m"+"Se ha quedado sin vidas :(")
                 print(f"Tuviste {len(letraIncorrecta)} errores y {len(letraCorrecta)} aciertos.")
                 print(f"La palabra oculta era:  {palabra}")
                 fin = True
